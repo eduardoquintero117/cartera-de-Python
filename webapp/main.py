@@ -27,7 +27,8 @@ def root():
 @app.post('/generate')
 def generate(body: Body):
     """
-    Generate a pseudo-random token ID of twenty characters by default. Example POST request body:
+    Generate a pseudo-random token ID of twenty characters by default. 
+    Example POST request body:
 
     {
         "length": 20
@@ -37,12 +38,13 @@ def generate(body: Body):
     return {'token': string}
 
 
-
-
 # generar un modelo Pydantic
 class Text(BaseModel):
-    text: str 
-# Create a FastAPI endpoint that accepts a POST request with a JSON body containing a single field called "text" and returns a checksum of the text
+    text: str
+
+
+# Create a FastAPI endpoint that accepts a POST request with a JSON body
+# containing a single field called "text" and returns a checksum of the text
 @app.post('/checksum')
 def checksum(text: Text):
     """
@@ -53,14 +55,4 @@ def checksum(text: Text):
     }
     """
     return {'checksum': hash(text.text)}
-
-
-
-
-
-
-
-
-
-
 
